@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="DataProviderAnnotation.MMTDataProvider">
+      <class name="WebTable.CreateOrgWithRandomData">
         <methods>
-          <include name="dataProviderTest"/>
+          <include name="createOrg"/>
         </methods>
-      </class> <!-- DataProviderAnnotation.MMTDataProvider -->
+      </class> <!-- WebTable.CreateOrgWithRandomData -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

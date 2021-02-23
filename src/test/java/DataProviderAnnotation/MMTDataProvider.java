@@ -30,7 +30,7 @@ public class MMTDataProvider {
 	
 	@Test(dataProvider = "getData")
 	
-	public void dataProviderTest(String src, String dest) throws EncryptedDocumentException, IOException {
+	public void dataProviderTest(String src, String dest) throws EncryptedDocumentException, IOException, InterruptedException {
 		ExcelUtility1 util=new ExcelUtility1();
 		
 		System.out.println("Count before increment "+Sample.count);
@@ -42,24 +42,33 @@ public class MMTDataProvider {
 		//To come out of the focus from pop-up
 		Actions act=new Actions(driver);
 		act.moveByOffset(10, 10).click().perform();
+
 		
 		//Entering the Source
 		driver.findElement(By.xpath("//span[text()='From']")).click();
+
 		driver.findElement(By.xpath("//input[@placeholder='From']")).sendKeys(src);
+
 		driver.findElement(By.xpath("//div[text()='"+src+"']")).click();
-		
+
 		//Enter the Destination
 		driver.findElement(By.xpath("//span[text()='To']")).click();
+
 		driver.findElement(By.xpath("//input[@placeholder='To']")).sendKeys(dest);
+
 		driver.findElement(By.xpath("//div[text()='"+dest+"']")).click();
+
 		
 		//Select the Departure Date
 		
 		driver.findElement(By.xpath("//span[text()='DEPARTURE']")).click();
 		driver.findElement(By.xpath("//div[@aria-label='Mon Mar 01 2021']")).click();
+
 		
 		//Click on Search to find the available fligts for the given source to destination
 		driver.findElement(By.xpath("//a[text()='Search']")).click();
+		
+
 		
 		//Checking the number of Fligts available
 		List<WebElement> allFlights = driver.findElements(By.xpath("//span[@class='arln-logo logo1']"));
